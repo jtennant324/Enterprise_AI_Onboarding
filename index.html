@@ -94,7 +94,7 @@
       margin: 1.5rem 0;
     }
 
-    .ask-row {
+    .ask-row { position: sticky; bottom: 0; background: #f5f7fa; padding: 1rem 0 0.5rem; 
       display: flex;
       gap: 8px;
       margin-bottom: 1.5rem;
@@ -271,13 +271,12 @@
 
     <hr class="divider" />
 
-    <p class="section-label">Ask your own question</p>
-    <div class="ask-row">
-      <input type="text" id="q-input" placeholder="e.g. Can Claude help me write a performance review?" onkeydown="if(event.key==='Enter') submit()" />
-      <button id="ask-btn" onclick="submit()">Ask &rarr;</button>
-    </div>
-
     <div class="chat" id="chat"></div>
+
+    <div class="ask-row" style="margin-top: 1.5rem;">
+      <input type="text" id="q-input" placeholder="e.g. Can Claude help me write a performance review?" onkeydown="if(event.key==='Enter') submit()" />
+      <button id="ask-btn" onclick="submit()">&#8594;</button>
+    </div>
 
     <footer>Built with the Anthropic Claude API &nbsp;·&nbsp; Enterprise AI Onboarding Tool</footer>
 
