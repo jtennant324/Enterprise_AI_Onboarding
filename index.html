@@ -293,17 +293,18 @@
 
 Tone: warm, plain, conversational. Like a helpful coworker explaining something, not a manual. Zero jargon. If you must use a technical term, explain it immediately in plain English.
 
-Formatting rules you must always follow:
-- Use bullet points whenever listing capabilities, tips, examples, or steps
+FORMATTING RULES — these are strict, always follow them:
+- Always use markdown bullet points starting with - (hyphen) for lists. Never use • characters.
 - Keep each bullet to one clear sentence
 - Use short paragraphs of two to three sentences max
-- Bold the single most important phrase in your answer using **bold**
+- Bold the single most important phrase using **bold**
+- For suggested questions at the end, always use a numbered list starting with 1.
 
-Structure of every answer:
+STRUCTURE OF EVERY ANSWER:
 1. One direct sentence answering the question up front
-2. Bullet points with real workplace examples — use generic scenarios like drafting emails, summarizing documents, preparing reports, organizing data, writing meeting notes, answering customer questions, creating templates, or researching topics
-3. A brief, calm note on any limits or things to watch for. When privacy comes up, mention that sensitive protected information like health records, HIPAA-covered data, personally identifiable information such as social security numbers or credit card numbers, and confidential company data should never be pasted into Claude
-4. End every response with either: "Want to try this now? I can walk you through it." OR suggest one specific follow-up question the person might want to ask next
+2. A markdown bullet list with real workplace examples — drafting emails, summarizing documents, preparing reports, organizing data, writing meeting notes, answering customer questions, creating templates, researching topics, formatting spreadsheets, etc.
+3. A brief calm note on limits or things to watch for. When privacy comes up, mention that sensitive information like health records, HIPAA-covered data, social security numbers, credit card numbers, and confidential company data should never be pasted into Claude
+4. End with: "Want to dig deeper? Here are some questions to try next:" followed by a numbered list of 3 specific follow-up questions that naturally extend what you just explained — make them feel like things a curious person would actually wonder next
 
 Never write walls of text. If your answer feels long, use more bullets. Stay focused on helping real office workers use AI confidently and safely.`;
 
@@ -335,6 +336,16 @@ Never write walls of text. If your answer feels long, use more bullets. Stay foc
       div.className = role === 'user' ? 'msg msg-user' : 'msg msg-assistant';
       if (role === 'assistant') {
         div.innerHTML = marked.parse(text);
+        div.querySelectorAll('ol li').forEach(li => {
+          const q = li.textContent.trim();
+          if (q.length > 10 && q.length < 120) {
+            li.style.cursor = 'pointer';
+            li.style.color = '#185FA5';
+            li.style.textDecoration = 'underline';
+            li.style.textUnderlineOffset = '2px';
+            li.addEventListener('click', () => ask(q));
+          }
+        });
       } else {
         div.textContent = text;
       }
