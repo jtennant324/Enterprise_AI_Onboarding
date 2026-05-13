@@ -1,3 +1,5 @@
+> **Demo notice:** This is a portfolio project intended for demonstration purposes only. Do not enter sensitive, confidential, or personally identifiable information. API keys are not stored but are held in browser memory for the duration of your session.
+
 # Enterprise AI Onboarding Tool
 
 An interactive onboarding assistant that helps everyday office workers understand how to use Claude AI productively and safely at work, with no technical background required.
