@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI at Work — Onboarding Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f5f7fa;
+      color: #1a1a2e;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      border-left: 3px solid #1565C0;
+      padding-left: 1.25rem;
+    }
+
+    header h1 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+      font-family: 'Georgia', serif;
+    }
+
+    header p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      font-family: sans-serif;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #1565C0;
+      margin-bottom: 10px;
+      font-family: sans-serif;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .topic-btn {
+      background: #fff;
+      border: 1px solid #dde3ee;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .topic-btn:hover {
+      background: #eef3fb;
+      border-color: #1565C0;
+    }
+
+    .topic-btn .t-icon {
+      font-size: 20px;
+      color: #1565C0;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .topic-btn .t-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a2e;
+      line-height: 1.4;
+      font-family: sans-serif;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #dde3ee;
+      margin: 1.5rem 0;
+    }
+
+    .ask-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .ask-row input {
+      flex: 1;
+      font-size: 14px;
+      padding: 0 14px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid #dde3ee;
+      background: #fff;
+      color: #1a1a2e;
+      font-family: sans-serif;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .ask-row input:focus {
+      border-color: #1565C0;
+    }
+
+    .ask-row button {
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 8px;
+      border: none;
+      background: #1565C0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: sans-serif;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .ask-row button:hover { background: #0d47a1; }
+    .ask-row button:disabled { opacity: 0.5; cursor: default; }
+
+    .chat {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .msg {
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.75;
+      font-family: sans-serif;
+    }
+
+    .msg-user {
+      background: #1565C0;
+      color: #fff;
+      align-self: flex-end;
+      max-width: 80%;
+      border-radius: 12px 12px 4px 12px;
+    }
+
+    .msg-assistant {
+      background: #fff;
+      color: #1a1a2e;
+      border: 1px solid #dde3ee;
+    }
+
+    .msg-thinking {
+      background: #f0f4fb;
+      color: #888;
+      font-style: italic;
+      border: 1px dashed #dde3ee;
+    }
+
+    .api-notice {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #5d4037;
+      font-family: sans-serif;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .api-key-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .api-key-row input {
+      flex: 1;
+      font-size: 13px;
+      padding: 0 10px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid #ffe082;
+      background: #fff;
+      color: #1a1a2e;
+      font-family: monospace;
+      outline: none;
+    }
+
+    .api-key-row button {
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 6px;
+      border: none;
+      background: #f59e0b;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>New to AI at work? Start here.</h1>
+      <p>Ask anything about using AI in your day-to-day work. No technical knowledge required — just pick a topic or type your question below.</p>
+    </header>
+
+    <div class="api-notice" id="api-notice">
+      <strong>API key required</strong> — To use this tool, enter your Anthropic API key below. Your key is never stored and only used for this session.
+      <div class="api-key-row">
+        <input type="password" id="api-key-input" placeholder="sk-ant-..." />
+        <button onclick="saveKey()">Save</button>
+      </div>
+    </div>
+
+    <p class="section-label">Common questions</p>
+    <div class="topic-grid">
+      <button class="topic-btn" onclick="ask('What can Claude actually do for me at work?')">
+        <i class="ti ti-bulb t-icon" aria-hidden="true"></i>
+        <span class="t-label">What can Claude do for me?</span>
+      </button>
+      <button class="topic-btn" onclick="ask('What should I never put into Claude or any AI tool at work?')">
+        <i class="ti ti-shield-off t-icon" aria-hidden="true"></i>
+        <span class="t-label">What should I never share?</span>
+      </button>
+      <button class="topic-btn" onclick="ask('How do I ask Claude a good question to get a useful answer?')">
+        <i class="ti ti-message-question t-icon" aria-hidden="true"></i>
+        <span class="t-label">How do I ask a good question?</span>
+      </button>
+      <button class="topic-btn" onclick="ask('Can Claude make mistakes? Should I always trust its answers?')">
+        <i class="ti ti-alert-triangle t-icon" aria-hidden="true"></i>
+        <span class="t-label">Can Claude make mistakes?</span>
+      </button>
+      <button class="topic-btn" onclick="ask('Is my conversation with Claude private? Who can see it?')">
+        <i class="ti ti-lock t-icon" aria-hidden="true"></i>
+        <span class="t-label">Is my conversation private?</span>
+      </button>
+      <button class="topic-btn" onclick="ask('How is Claude different from just Googling something?')">
+        <i class="ti ti-search t-icon" aria-hidden="true"></i>
+        <span class="t-label">How is Claude different from Google?</span>
+      </button>
+    </div>
+
+    <hr class="divider" />
+
+    <p class="section-label">Ask your own question</p>
+    <div class="ask-row">
+      <input type="text" id="q-input" placeholder="e.g. Can Claude help me write a performance review?" onkeydown="if(event.key==='Enter') submit()" />
+      <button id="ask-btn" onclick="submit()">Ask &rarr;</button>
+    </div>
+
+    <div class="chat" id="chat"></div>
+
+    <footer>Built with the Anthropic Claude API &nbsp;·&nbsp; Enterprise AI Onboarding Tool</footer>
+
+  </div>
+
+  <script>
+    const SYSTEM = `You are an enterprise AI onboarding assistant helping everyday office workers — pharmacists, executive assistants, district managers, administrative staff, and similar non-technical employees — understand how to use Claude productively and safely at work.
+
+Your tone is warm, clear, and completely jargon-free. You speak like a patient, knowledgeable colleague, not a technical manual. Short paragraphs. Plain language. Real workplace examples.
+
+When answering:
+- Always give a direct, practical answer first
+- Use concrete workplace examples (drafting emails, summarizing documents, answering policy questions, preparing reports, etc.)
+- If something has limits or risks, explain them simply and without alarm
+- Never use technical terms without explaining them in plain English
+- Keep answers focused — 3 to 5 short paragraphs is ideal
+- End with one practical tip or next step the person can try immediately
+
+You are not a general assistant — stay focused on helping people understand and use AI tools at work.`;
+
+    let history = [];
+    let apiKey = '';
+
+    function saveKey() {
+      const val = document.getElementById('api-key-input').value.trim();
+      if (val.startsWith('sk-')) {
+        apiKey = val;
+        document.getElementById('api-notice').style.display = 'none';
+      }
+    }
+
+    function checkKey() {
+      if (!apiKey) {
+        document.getElementById('api-notice').style.display = 'block';
+        return false;
+      }
+      return true;
+    }
+
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('q-input');
+    const btn = document.getElementById('ask-btn');
+
+    function addMsg(role, text) {
+      const div = document.createElement('div');
+      div.className = role === 'user' ? 'msg msg-user' : 'msg msg-assistant';
+      div.textContent = text;
+      chat.appendChild(div);
+      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return div;
+    }
+
+    function addThinking() {
+      const div = document.createElement('div');
+      div.className = 'msg msg-thinking';
+      div.textContent = 'Thinking...';
+      chat.appendChild(div);
+      return div;
+    }
+
+    async function ask(question) {
+      if (!question.trim()) return;
+      if (!checkKey()) return;
+      input.value = '';
+      btn.disabled = true;
+
+      addMsg('user', question);
+      const thinking = addThinking();
+      history.push({ role: 'user', content: question });
+
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-allow-browser': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            system: SYSTEM,
+            messages: history
+          })
+        });
+        const data = await res.json();
+        if (data.error) {
+          thinking.remove();
+          addMsg('assistant', 'API error: ' + data.error.type + ' — ' + data.error.message);
+          btn.disabled = false;
+          input.focus();
+          return;
+        }
+        const reply = data.content?.find(b => b.type === 'text')?.text || 'Sorry, something went wrong. Please try again.';
+        history.push({ role: 'assistant', content: reply });
+        thinking.remove();
+        addMsg('assistant', reply);
+      } catch (err) {
+        thinking.remove();
+        addMsg('assistant', 'Connection error: ' + err.message);
+      }
+
+      btn.disabled = false;
+      input.focus();
+    }
+
+    function submit() {
+      ask(input.value);
+    }
+
+    window.onload = () => {
+      document.getElementById('api-notice').style.display = 'block';
+    };
+  </script>
+</body>
+</html>
