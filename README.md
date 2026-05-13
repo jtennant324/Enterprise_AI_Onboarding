@@ -8,6 +8,12 @@ An interactive onboarding assistant that helps everyday office workers understan
 
 ---
 
+## YouTube Demo Video
+
+<a href="https://youtu.be/e9hdBBGZ7lw">
+  <img src="https://img.youtube.com/vi/e9hdBBGZ7lw/maxresdefault.jpg" width="400" alt="Demo Video" />
+</a>
+
 ## What it does
 
 This tool is designed for anyone stepping into an AI-enabled workplace for the first time, from entry-level staff to executives. It answers common questions about enterprise AI use in plain language, without jargon or assumed technical knowledge.
