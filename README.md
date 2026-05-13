@@ -8,7 +8,7 @@ An interactive onboarding assistant that helps everyday office workers understan
 
 ---
 
-## YouTube Demo Video
+## YouTube Video Demo
 
 <a href="https://youtu.be/e9hdBBGZ7lw">
   <img src="https://img.youtube.com/vi/e9hdBBGZ7lw/maxresdefault.jpg" width="400" alt="Demo Video" />
