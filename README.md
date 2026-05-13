@@ -4,11 +4,13 @@
 
 An interactive onboarding assistant that helps everyday office workers understand how to use Claude AI productively and safely at work, with no technical background required.
 
-**Live demo:** https://jtennant324.github.io/Enterprise_AI_Onboarding/ (API Key required)
+**Try it out here. API Key required for use.** https://jtennant324.github.io/Enterprise_AI_Onboarding/
 
 ---
 
 ## YouTube Video Demo
+
+**Or click the thumbnail to see my video demo.**
 
 <a href="https://youtu.be/e9hdBBGZ7lw">
   <img src="https://img.youtube.com/vi/e9hdBBGZ7lw/maxresdefault.jpg" width="400" alt="Demo Video" />
